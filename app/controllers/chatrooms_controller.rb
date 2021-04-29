@@ -2,7 +2,15 @@ class ChatroomsController < ApplicationController
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
 
   # GET /chatrooms
-  # GET /chatrooms.json
+  # GET /chatrooms.jsonprivate
+
+def set_chatroom
+  @chatroom = Chatroom.find(params[:chatroom_id])
+end
+
+def message_params
+  params.require(:message).permit(:body)
+end
   def index
     @chatrooms = Chatroom.public_channels
   end

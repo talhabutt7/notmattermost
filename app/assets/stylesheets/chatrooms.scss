@@ -1,3 +1,139 @@
 // Place all the styles related to the Chatrooms controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.side-navbar {
+  background-color: #289672;
+  width: 300px;
+  height: 100%;
+}
+
+.avatar {
+  max-height:30px;
+  border-radius: 15px;
+  width:auto;
+  vertical-align:middle;
+}
+
+.room-nav-link {
+  //border: 1px solid lighten($primary, 40%);
+  //background: lighten($primary, 45%);
+
+  & + .room-nav-link {
+    border-top: 0 none;
+  }
+}
+
+.chat {
+  //border: 1px solid lighten($secondary, 40%);
+  //background: lighten($secondary, 50%);
+  height: 81vh;
+  padding-left: 110px;
+  padding-right: 40px;
+  border-radius: 5px 5px 0 0;
+  overflow-y: auto;
+
+  .chat-message-container {
+    padding: 5px;
+
+    .avatar {
+      margin: 5px;
+    }
+
+    .message-content {
+      min-width: 10%;
+      max-width: 50%;
+      padding: 5px;
+      border: 1px solid #29bb89;
+      border-radius: 15px;
+      //background: lighten($primary, 10%);
+      background: #29bb89;
+      //color: $white;
+
+    }
+
+    & + .chat-message-container {
+      margin-top: 10px;
+    }
+  }
+}
+
+.my_message {
+  float: right;
+  margin-left: auto;
+}
+.float-left {
+  float: left;
+  margin-right: auto;
+}
+
+//.chat-input {
+//  border-top: 0 none;
+//  border-radius: 0 0 5px 5px;
+//}
+
+.not_my_message {
+  min-width: 20%;
+  max-width: 50%;
+  padding: 5px;
+  border: 1px solid #686666;
+  border-radius: 15px;
+  background-color: #999999;
+  //color: $white;
+}
+
+.chat-navbar {
+  background-color: #289672;
+}
+
+.chat-members {
+  padding: 5px;
+  color: #e3dcdc;
+}
+.chat-members:hover {
+  background-color: #29bb89;
+  color: #e3dcdc;
+  text-decoration: none;
+}
+
+.public-channels {
+  display: flex;
+  justify-content: space-between;
+  background: #289672;
+  padding: 10px;
+}
+.public-channels:hover {
+  color: white;
+}
+
+.add-channel {
+  margin: 5px;
+  margin-right: 20px;
+  color: #212529;
+}
+.add-channel:hover {
+  color: white;
+}
+
+.channels-heading {
+  margin: 5px;
+  margin-left: 20px;
+}
+
+.tab-scrolling {
+
+}
+
+.dropdown-icons {
+}
+
+.dropdown-content {
+  font-size: 14px;
+  color: #000000a6;
+}
+
+.message-input {
+  width: 980px;
+  margin-left: 85px;
+}
+
