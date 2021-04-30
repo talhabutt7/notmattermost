@@ -137,3 +137,17 @@
   margin-left: 85px;
 }
 
+.margin-top-20 {
+  margin-top: 20px;
+}
+.padding-10 {
+  padding: 10px;
+}
+
+@media (min-width: 768px) {
+  .main-page {
+    margin-left: 50%;
+  }
+}
+
+
