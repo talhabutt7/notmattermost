@@ -4,10 +4,6 @@ class ChatroomsController < ApplicationController
   # GET /chatrooms
   # GET /chatrooms.jsonprivate
 
-def set_chatroom
-  @chatroom = Chatroom.find(params[:chatroom_id])
-end
-
 def message_params
   params.require(:message).permit(:body)
 end

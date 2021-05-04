@@ -1,3 +1,61 @@
+<div class="fluid-container" style="margin-top: 70px">
+  <div class="row">
+    <div class="col-sm-2 side-navbar" style="position: fixed; top: 70px; left: 0;">
+      <% if user_signed_in? %>
+        <div class="public-channels">
+          <div class="channels-heading">CHANNELS</div>
+          <div class="dropdown dropleft" style="padding: 5px; margin-right: 20px;">
+            <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to new_chatroom_path, class: 'dropdown-item pl-3 pr-3 dropdown-content' do %>
+                <i class="fas fa-plus pr-2" aria-hidden="true"></i> Create New Channel
+              <% end %>
+              <a class="dropdown-item pl-3 pr-3 dropdown-content" href="#"><i class="fa fa-times pr-2" aria-hidden="true"></i>
+                Cancel </a>
+            </div>
+          </div>
+        </div>
+
+
+        <% current_user.chatrooms.public_channels.each do |chatroom| %>
+          <li><%= link_to chatroom.name, chatroom, data: {behavior: "chatroom-link", chatroom_id: chatroom.id} %></li>
+          <div class="dropdown dropleft" style="padding: 5px; margin-right: 20px;">
+            <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            </div>
+          </div>
+        <% end %>
+
+
+        <div class="channels-heading margin-top-20 padding-10">DIRECT MESSAGES
+          <div class="dropdown dropleft" style="padding: 5px; margin-right: 20px;">
+            <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <%= link_to new_chatroom_path, class: 'dropdown-item pl-3 pr-3 dropdown-content' do %>
+                <i class="fas fa-plus pr-2" aria-hidden="true"></i> Create New Channel
+              <% end %>
+              <a class="dropdown-item pl-3 pr-3 dropdown-content" href="#"><i class="fa fa-times pr-2" aria-hidden="true"></i>
+                Cancel </a>
+            </div>
+          </div>
+        </div>
+
+        <% (User.all - [current_user]).each do |user| %>
+          <li><%= link_to user.username, direct_message_path(user.id), data: {behavior: "chatroom-link", chatroom_id: Chatroom.direct_message_for_users([current_user, user]).id } %></li>
+        <% end %>
+
+      <% end %>
+    </div>
+
+    <div class="col-sm-12 main-page">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+
+
+
+
 <p id="notice"><%= notice %></p>
 
 <h1>Chatrooms</h1>
