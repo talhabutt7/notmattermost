@@ -8,7 +8,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
 
-<body>
+<body style="overflow: hidden;">
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -52,14 +52,14 @@
 </nav>
 
 <% if user_signed_in? %>
-<div class="fluid-container" style="margin-top: 70px">
-  <div class="row">
-    <div class="col-sm-2 side-navbar" style="position: fixed; top: 70px; left: 0;">
+<div class="fluid-container" style="margin-top: 50px">
+  <div class="d-flex">
+    <div class="col-sm-2 side-navbar">
       
         <div class="public-channels">
           <div class="channels-heading">CHANNELS</div>
           <div class="dropdown dropleft" style="padding: 5px; margin-right: 20px;">
-            <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <i class="fa fa-ellipsis-v" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu padding-10" aria-labelledby="dropdownMenuButton">
               <%= link_to new_chatroom_path, class: 'dropdown-item pl-3 pr-3 dropdown-content' do %>
                 <i class="fas fa-plus pr-2" aria-hidden="true" style="margin-right: 5px;"></i> Create New Channel
@@ -72,9 +72,9 @@
 
 
         <% current_user.chatrooms.public_channels.each do |chatroom| %>
-          <li><%= link_to chatroom.name, chatroom, data: { behavior: "chatroom-link", chatroom_id: chatroom.id } %></li>
+          <div style=""><%= link_to chatroom.name, chatroom, data: { behavior: "chatroom-link", chatroom_id: chatroom.id } %></div>
           <div class="dropdown dropleft" style="padding: 5px; margin-right: 20px;">
-            <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <i class="fa fa-ellipsis-v" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             </div>
           </div>
@@ -83,7 +83,7 @@
         <div class="public-channels">
           <div class="channels-heading margin-top-20 padding-10">DIRECT MESSAGES</div>
           <div class="dropdown dropleft" style="padding: 5px; margin-right: 20px; margin-top: 25px !important;" >
-            <i class="fas fa-bars" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+            <i class="fa fa-ellipsis-v" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
             <div class="dropdown-menu padding-10" aria-labelledby="dropdownMenuButton">
               <%= link_to new_chatroom_path, class: 'dropdown-item pl-3 pr-3 dropdown-content' do %>
                 <i class="fas fa-plus pr-2" aria-hidden="true" style="margin-right: 5px;"></i> Create New Channel
@@ -101,7 +101,7 @@
       <% end %>
       </div>
 
-      <div class="col-sm-12 main-page">
+      <div class="col-sm-10 main-page">
         <%= yield %>
       </div>
     </div>
